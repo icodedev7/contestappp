@@ -1,4 +1,4 @@
-contestappp::Application.routes.draw do
+Contestapp::Application.routes.draw do
 
    get "account"=> 'accounts#edit'
    patch "account"=> 'accounts#update'
