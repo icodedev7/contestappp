@@ -80,7 +80,7 @@ Contestapp::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-
+root 'people#index'
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
