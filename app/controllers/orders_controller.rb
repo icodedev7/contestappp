@@ -75,8 +75,8 @@ class OrdersController < ApplicationController
         # Import Products to ensure we are up to date
         shopify_integration.import_products
         result = shopify_integration.import_orders
-        format.html { redirect_to ({action: :index}), notice: "{result[:created].to_i} created, {result[:failed]} failed." }
-        format.json { render json: "{result[:created].to_i} created, {result[:failed]} failed." }
+        format.html { redirect_to ({action: :index}), notice: "#{result[:created].to_i} created, #{result[:failed]} failed." }
+        format.json { render json: "#{result[:created].to_i} created, #{result[:failed]} failed." }
       else
         format.html { redirect_to ({action: :index}), alert: "Unable to connect to Shopify" }
         format.json { render json: "Unable to connect to Shopify", status: :unprocessable_entity }
