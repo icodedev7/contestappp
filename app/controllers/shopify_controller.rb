@@ -12,7 +12,7 @@ class ShopifyController < ApplicationController
     end
 
     # Redirect to the authorization page
-    redirect_to "https://{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/authorize?client_id={SHOPIFY_API_KEY}&scope=read_products,read_orders,read_customers"
+    redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/authorize?client_id={SHOPIFY_API_KEY}&scope=read_products,read_orders,read_customers"
 
   end
 
