@@ -27,8 +27,8 @@ class ShopifyController < ApplicationController
 
       # Include the relevant pieces of information
       data = {
-        'client_id' => SHOPIFY_API_KEY,
-        'client_secret' => SHOPIFY_SHARED_SECRET,
+        'client_id' => 2797f1bc7e2ae87a08fb90f0713f1712,
+        'client_secret' => 756bbb6132cc61ad450e5b1bd2e0f411,
         'code' => params[:code]
       }
 
