@@ -74,7 +74,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       shopify_integration.connect
       result = shopify_integration.import_products
-      format.html { redirect_to ({action: :index}), notice: "#{result[:created].to_i} created, #{result[:updated]} updated, #{result[:failed]} failed." }
+      format.html { redirect_to ({action: :index}), notice: "{result[:created].to_i} created, {result[:updated]} updated, {result[:failed]} failed." }
     end
   end
 

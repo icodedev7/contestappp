@@ -29,11 +29,11 @@ class DashboardController < ApplicationController
         # Save the winner        
         @contest.update_attribute(:order_id, contest_results.results)
 
-        format.html { redirect_to root_path, notice: "Contest Winner: <a href='#{order_path(@contest.order)}'>#{@contest.order.email}</a>" }
+        format.html { redirect_to root_path, notice: "Contest Winner: <a href='{order_path(@contest.order)}'>{@contest.order.email}</a>" }
         format.json { render action: 'show', status: :created, location: @contest }
 
       else
-        format.html { redirect_to root_path, alert: "Unable to create a Contest #{@contest.errors.full_messages.to_s}" }
+        format.html { redirect_to root_path, alert: "Unable to create a Contest {@contest.errors.full_messages.to_s}" }
         format.json { render json: @contest.errors, status: :unprocessable_entity }
       end
     end
