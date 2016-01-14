@@ -11,7 +11,7 @@ class WebhookService
   def verify_webhook
 
     # TODO: Remove this line (or make it ENV specific) to disable test mode
-    return true if @request.headers['HTTP_X_SHOPIFY_TEST'].to_s == "false"
+    return true if @request.headers['HTTP_X_SHOPIFY_TEST'].to_s == "true"
 
     # Make sure the encrypted header was passed in (manually setup webhooks don't contain the HMAC)
     hmac_header = @request.headers['HTTP_X_SHOPIFY_HMAC_SHA256']
