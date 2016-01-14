@@ -5,9 +5,9 @@ Contestapp::Application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
 
-   SHOPIFY_API_KEY = "a0652d6d026c50b8cb69b73b32c6e7da"
-   SHOPIFY_SHARED_SECRET = "f5c1a191238d02158a415c661cdb9c5c"
-   DOMAIN = "http://localhost:3000"
+   SHOPIFY_API_KEY = "2797f1bc7e2ae87a08fb90f0713f1712"
+   SHOPIFY_SHARED_SECRET = "756bbb6132cc61ad450e5b1bd2e0f411"
+   DOMAIN = "contestappp.herokuapp.com"
 
    
   config.cache_classes = false
