@@ -441,10 +441,10 @@ context "update_account" do
 
     it "should return true if the signature matches" do
       # Assume we have the query parameters in a hash
-      query_parameters = { shop: "some-shop.myshopify.com",
-                           code: "a94a110d86d2452eb3e2af4cfb8a3828",
-                           timestamp: "1337178173",
-                           signature: "929b77106a419bde96b151b318557a11"}
+      query_parameters = { shop: "devlopment-store.myshopify.com",
+                           code: "2797f1bc7e2ae87a08fb90f0713f1712",
+                           timestamp: "1452859382",
+                           signature: "79d9748788a6a854db3293113e118d46"}
 
       ShopifyIntegration.verify(query_parameters).should be_true
 
@@ -452,10 +452,10 @@ context "update_account" do
 
     it "should return false if the signature DOES NOT match" do
       # Assume we have the query parameters in a hash
-      query_parameters = { shop: "some-shop.myshopify.com",
-                           code:  "a94a110d86d2452eb3e2af4cfb8a3828",
-                           timestamp: "1337178173",
-                           signature: "929b77106a419bde96b151b318557234"} # Changed
+      query_parameters = { shop: "devlopment-store.myshopify.com",
+                           code: "2797f1bc7e2ae87a08fb90f0713f1712",
+                           timestamp: "1452859382",
+                           signature: "79d9748788a6a854db3293113e118d46"} # Changed
 
       ShopifyIntegration.verify(query_parameters).should be_false
     end
