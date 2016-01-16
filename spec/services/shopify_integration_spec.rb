@@ -10,7 +10,7 @@ describe ShopifyIntegration do
   context "initialize" do
     it "should raise exception if required parameters are not supplied" do
       expect {ShopifyIntegration.new(
-                :url => "https://devlopment-store.myshopify.com",
+                :url => "http://url.to.store",
                 :password => "secretsecret",
                 :account_id => 1
       )}.to_not raise_error
@@ -20,7 +20,7 @@ describe ShopifyIntegration do
       )}.to raise_error
 
       expect {ShopifyIntegration.new(
-                :url => "https://devlopment-store.myshopify.com"
+                :url => "http://url.to.store"
       )}.to raise_error
 
       expect {ShopifyIntegration.new(
@@ -34,28 +34,28 @@ describe ShopifyIntegration do
       )}.to raise_error
 
       expect {ShopifyIntegration.new(
-                :url => "https://devlopment-store.myshopify.com",
+                :url => "http://url.to.store",
                 :password => ""
       )}.to raise_error
 
       expect {ShopifyIntegration.new(
-                :url => "https://devlopment-store.myshopify.com",
+                :url => "http://url.to.store",
                 :password => nil
       )}.to raise_error
 
       expect {ShopifyIntegration.new(
-                :url => "https://devlopment-store.myshopify.com",
+                :url => "http://url.to.store",
                 :password => "secretsecret"
       )}.to raise_error
 
       expect {ShopifyIntegration.new(
-                :url => "https://devlopment-store.myshopify.com",
+                :url => "http://url.to.store",
                 :password => "secretsecret",
                 :account_id => ""
       )}.to raise_error
 
       expect {ShopifyIntegration.new(
-                :url => "https://devlopment-store.myshopify.com",
+                :url => "http://url.to.store",
                 :password => "secretsecret",
                 :account_id => nil
       )}.to raise_error
@@ -66,12 +66,12 @@ describe ShopifyIntegration do
 
     it "should set instance_variables" do
       shopify_integration = ShopifyIntegration.new(
-        :url => "https://devlopment-store.myshopify.com",
+        :url => "http://url.to.store",
         :password => "secretsecret",
         :account_id => 1
       )
 
-      shopify_integration.url.should == "https://devlopment-store.myshopify.com"
+      shopify_integration.url.should == "http://url.to.store"
       shopify_integration.password.should == "secretsecret"
       shopify_integration.account_id.should == 1
 
@@ -83,7 +83,7 @@ describe ShopifyIntegration do
 
     before do
       @shopify_integration = ShopifyIntegration.new(
-        :url => "https://devlopment-store.myshopify.com",
+        :url => "http://url.to.store",
         :password => "secretsecret",
         :account_id => 1
       )
@@ -94,7 +94,7 @@ describe ShopifyIntegration do
     it "should activate a session with Shopify" do
 
       ShopifyAPI::Session.should_receive(:setup).with(:api_key => SHOPIFY_API_KEY, :secret => SHOPIFY_SHARED_SECRET)
-      ShopifyAPI::Session.should_receive(:new).with("https://devlopment-store.myshopify.com", "secretsecret").and_return(@session)
+      ShopifyAPI::Session.should_receive(:new).with("http://url.to.store", "secretsecret").and_return(@session)
       ShopifyAPI::Base.should_receive(:activate_session).with(@session)
       @shopify_integration.connect
     end
@@ -107,7 +107,7 @@ describe ShopifyIntegration do
     before do
 
       @shopify_integration = ShopifyIntegration.new(
-        :url => "https://devlopment-store.myshopify.com",
+        :url => "http://url.to.store",
         :password => "secretsecret",
         :account_id => 1
       )
@@ -291,7 +291,7 @@ describe ShopifyIntegration do
     before do
 
       @shopify_integration = ShopifyIntegration.new(
-        :url => "https://devlopment-store.myshopify.com",
+        :url => "http://url.to.store",
         :password => "secretsecret",
         :account_id => 1
       )
@@ -405,7 +405,7 @@ context "update_account" do
 
     before do
       @shopify_integration = ShopifyIntegration.new(
-        :url => "https://devlopment-store.myshopify.com",
+        :url => "http://url.to.store",
         :password => "secretsecret",
         :account_id => @account.id
       )
@@ -441,10 +441,10 @@ context "update_account" do
 
     it "should return true if the signature matches" do
       # Assume we have the query parameters in a hash
-      query_parameters = { shop: "devlopment-store.myshopify.com",
-                           code: "3237aa34af73ab013f78d705114c1c25",
-                           timestamp: "1452930474",
-                           signature: "12ace3bf26c87e1457bb9a83436d8329"}
+      query_parameters = { shop: "some-shop.myshopify.com",
+                           code: "a94a110d86d2452eb3e2af4cfb8a3828",
+                           timestamp: "1337178173",
+                           signature: "929b77106a419bde96b151b318557a11"}
 
       ShopifyIntegration.verify(query_parameters).should be_true
 
@@ -452,10 +452,10 @@ context "update_account" do
 
     it "should return false if the signature DOES NOT match" do
       # Assume we have the query parameters in a hash
-      query_parameters = { shop: "devlopment-store.myshopify.com",
-                           code: "3237aa34af73ab013f78d705114c1c25",
-                           timestamp: "1452930474",
-                           signature: "12ace3bf26c87e1457bb9a83436d8329"} # Changed
+      query_parameters = { shop: "some-shop.myshopify.com",
+                           code:  "a94a110d86d2452eb3e2af4cfb8a3828",
+                           timestamp: "1337178173",
+                           signature: "929b77106a419bde96b151b318557234"} # Changed
 
       ShopifyIntegration.verify(query_parameters).should be_false
     end
