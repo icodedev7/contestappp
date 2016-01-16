@@ -12,7 +12,8 @@ class ShopifyController < ApplicationController
     end
 
     # Redirect to the authorization page
-    redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/authorize?client_id=#{SHOPIFY_API_KEY}&scope=read_products,read_orders,read_customers"
+   # redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/authorize?client_id=#{SHOPIFY_API_KEY}&scope=read_products,read_orders,read_customers"
+   redirect_to "/auth/shopify?shop=myshopname"
 
   end
 
@@ -22,7 +23,7 @@ class ShopifyController < ApplicationController
 
       # Initialize the connection to Shopify
       http = Net::HTTP.new(params[:shop], 443)
-      http.use_ssl = fasle
+      http.use_ssl = true
       path = '/admin/oauth/access_token'
 
       # Include the relevant pieces of information
