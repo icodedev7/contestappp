@@ -13,7 +13,7 @@ class ShopifyIntegration
   end
 
   def create_charge(amount, is_test)
-    return_url = "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/shopify/confirm"
+    return_url = "#{DOMAIN}/shopify/confirm"
     # Create the charge
     charge = ShopifyAPI::RecurringApplicationCharge.create(
       name: "Contest App Paid Membership",
@@ -219,7 +219,7 @@ class ShopifyIntegration
 
   def setup_webhooks
 
-    webhook_url = "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/webhooks/uninstall"
+    webhook_url = "#{DOMAIN}/webhooks/uninstall"
 
     begin
 
