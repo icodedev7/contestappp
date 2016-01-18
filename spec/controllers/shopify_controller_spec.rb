@@ -44,10 +44,10 @@ describe ShopifyController do
       FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/shop.json", :body => '{"name":"devlopment-store", "id":"123123"}')
       FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/webhooks.json", :body => '{"name":"devlopment-store", "id":"123123"}')
 
-      @shop_response = OpenStruct.new(name: "devlopment-store", id: 1231231, domain: "test-shop.com", shop_owner: "Daffy Duck",
-                                      email: "daffy@duck.com", address1: "123 Duck Road", city: "Duckville",
-                                      province_code: "AL", province: "Alabama", country: "United States", zip: "12345",
-                                      phone: "555-555-1234", plan_name: "enterprise", timezone: "EST")
+      @shop_response = OpenStruct.new(name: "devlopment-store", id: 1231231, domain: "devlopment-store.com", shop_owner: "jyoti chauhan",
+                                      email: "chauhan1234jyoti@gmail.com", address1: "Industrial Area, Phase 8", city: "chandigarh",
+                                      province_code: "IN", province: "India", country: "india", zip: "160071",
+                                      phone: "+91-8591178554", plan_name: "enterprise", timezone: "EST")
 
     end
 
