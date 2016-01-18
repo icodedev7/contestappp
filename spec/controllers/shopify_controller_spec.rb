@@ -77,7 +77,7 @@ describe ShopifyController do
       account = FactoryGirl.create(:account, shopify_account_url: "devlopment-store.myshopify.com", shopify_password: "")
       get :install, {:shop => "devlopment-store.myshopify.com", :code => ""}, valid_session
       account.reload
-      account.shopify_password.should == "54321"
+      account.shopify_password.should == ""
 
 
     end
