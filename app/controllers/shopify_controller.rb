@@ -63,7 +63,7 @@ redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/ad
       shopify_service.setup_webhooks
 
       # Redirect to the dashboard
-      redirect_to "https://contestappp.herokuapp.com/"
+      redirect_to "dashboard/index.html.erb"
 
     else
       render :text => "Unable to verify request"

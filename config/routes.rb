@@ -25,10 +25,6 @@ Contestapp::Application.routes.draw do
       get 'import'
     end
 	
-	resources :accounts do
-member do
-get 'test_connection'
-end
   end
 
   resources :contests
