@@ -40,9 +40,9 @@ describe ShopifyController do
 
     before do
       FakeWeb.allow_net_connect = false
-      FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/access_token", :body => '{"access_token":"54321"}')
-      FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/shop.json", :body => '{"name":"devlopment-store", "id":"123123"}')
-      FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/webhooks.json", :body => '{"name":"devlopment-store", "id":"123123"}')
+      FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/access_token", :body => '{"access_token":""}')
+      FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/shop.json", :body => '{"name":"devlopment-store", "id":""}')
+      FakeWeb.register_uri(:any, "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/webhooks.json", :body => '{"name":"devlopment-store", "id":""}')
 
       @shop_response = OpenStruct.new(name: "devlopment-store", id: 1231231, domain: "devlopment-store.com", shop_owner: "jyoti chauhan",
                                       email: "chauhan1234jyoti@gmail.com", address1: "Industrial Area, Phase 8", city: "chandigarh",
