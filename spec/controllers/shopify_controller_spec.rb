@@ -54,28 +54,28 @@ describe ShopifyController do
     it "should verify the request" do
       ShopifyAPI::Shop.should_receive(:current).and_return(@shop_response)
       ShopifyIntegration.should_receive(:verify).and_return(true)
-      get :install, {:shop => "devlopment-store.myshopify.com", :code => "1234"}, valid_session
+      get :install, {:shop => "devlopment-store.myshopify.com", :code => ""}, valid_session
     end
 
     it "should render a message and return if verification fails" do
 
       ShopifyIntegration.should_receive(:verify).and_return(false)
 
-      get :install, {:shop => "devlopment-store.myshopify.com", :code => "1234"}, valid_session
+      get :install, {:shop => "devlopment-store.myshopify.com", :code => ""}, valid_session
       response.body.should == "Unable to verify request"
     end
 
     it "should create a new Account (if one doesn't exist)" do
       ShopifyAPI::Shop.should_receive(:current).and_return(@shop_response)
       ShopifyIntegration.should_receive(:verify).and_return(true)
-      expect {get :install, {:shop => "devlopment-store.myshopify.com", :code => "1234"}, valid_session}.to change {Account.count}.by(1)
+      expect {get :install, {:shop => "devlopment-store.myshopify.com", :code => ""}, valid_session}.to change {Account.count}.by(1)
     end
 
     it "should update an existing account" do
       ShopifyAPI::Shop.should_receive(:current).and_return(@shop_response)
       ShopifyIntegration.should_receive(:verify).and_return(true)
-      account = FactoryGirl.create(:account, shopify_account_url: "devlopment-store.myshopify.com", shopify_password: "9876")
-      get :install, {:shop => "devlopment-store.myshopify.com", :code => "1234"}, valid_session
+      account = FactoryGirl.create(:account, shopify_account_url: "devlopment-store.myshopify.com", shopify_password: "54321")
+      get :install, {:shop => "devlopment-store.myshopify.com", :code => ""}, valid_session
       account.reload
       account.shopify_password.should == "54321"
 
