@@ -74,7 +74,7 @@ describe ShopifyController do
     it "should update an existing account" do
       ShopifyAPI::Shop.should_receive(:current).and_return(@shop_response)
       ShopifyIntegration.should_receive(:verify).and_return(true)
-      account = FactoryGirl.create(:account, shopify_account_url: "devlopment-store.myshopify.com", shopify_password: "54321")
+      account = FactoryGirl.create(:account, shopify_account_url: "devlopment-store.myshopify.com", shopify_password: "")
       get :install, {:shop => "devlopment-store.myshopify.com", :code => ""}, valid_session
       account.reload
       account.shopify_password.should == "54321"
