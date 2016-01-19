@@ -1,8 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @user = current_user
-  end
-end
+  
     # Load past results in reverse order
     @contests = Contest.order("created_at desc")
 
