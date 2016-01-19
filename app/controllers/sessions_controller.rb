@@ -12,8 +12,7 @@ class SessionsController < ApplicationController
       # because Shopify does not allow us to use our local machine
       # for authorize / install requests
       session[:current_account_id] = params[:account_id]
-      redirect_to 'app/views/dashboard/index.html.erb'
-    end
+      redirect_to "views/dashboard/index.html.erb"
   end
 
   def destroy
