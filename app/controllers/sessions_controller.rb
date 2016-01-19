@@ -12,14 +12,14 @@ class SessionsController < ApplicationController
       # because Shopify does not allow us to use our local machine
       # for authorize / install requests
       session[:current_account_id] = params[:account_id]
-      redirect_to dashboard_index_path
+      redirect_to 'app/views/dashboard/index.html.erb'
     end
   end
 
   def destroy
     # Send them back to Shopify
     if current_account
-      redirect_to "https://#{current_account.shopify_account_url}/admin/apps"
+      redirect_to "https://devlopment-store.myshopify.com/admin/apps"
     else
       redirect_to sessions_new_path
     end
