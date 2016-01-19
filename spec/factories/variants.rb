@@ -10,6 +10,6 @@ FactoryGirl.define do
     sku "MyString"
     barcode "MyString"
     price 1.5
-    last_shopify_sync "2014-05-18 18:37:05"
+    last_shopify_sync "2016-01-11 18:37:05"
   end
 end
