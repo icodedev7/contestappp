@@ -30,7 +30,7 @@ Contestapp::Application.routes.draw do
   resources :contests
 
   # Dashboard routes
-  get "home/index"
+  get "dashboard/index"
   post "create_contest" => 'dashboard#create_contest'
   get "test_connection" => 'dashboard#test_connection'
 
@@ -45,7 +45,7 @@ Contestapp::Application.routes.draw do
 
 
   # You can have the root of your site routed with "root"
-  root 'dashboard#index'
+  root 'dashboard/index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
