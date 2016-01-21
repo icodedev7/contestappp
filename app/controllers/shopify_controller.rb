@@ -16,7 +16,7 @@ class ShopifyController < ApplicationController
   
 #redirect_to "https://devlopment-store.myshopify.com/admin/oauth/authorize?client_id=2797f1bc7e2ae87a08fb90f0713f1712&scope=read_products,write_themes,write_script_tags,read_orders,read_customers&redirect_uri=https://devlopment-store.myshopify.com/admin/apps/contestappp&state=Callback"
 
-redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/authorize?client_id=2797f1bc7e2ae87a08fb90f0713f1712&scope=read_products,read_orders,read_customers,write_themes,write_script_tags,&redirect_uri=https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/apps/contestappp&state=Callback"
+redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/oauth/authorize?client_id=2797f1bc7e2ae87a08fb90f0713f1712&scope=read_products,read_orders,read_customers,write_themes,write_script_tags,&redirect_uri=auth/shopify/callback&state=Callback"
 
   end
 
