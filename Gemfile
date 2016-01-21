@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
-gem 'omniauth', '~> 1.2'
-gem 'omniauth-auth0', '~> 1.1'
+gem 'omniauth', '1.2'
+gem 'omniauth-auth0', '1.1'
 
 ruby "2.1.2"
 group :production do
