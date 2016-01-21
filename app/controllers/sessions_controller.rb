@@ -12,14 +12,14 @@ class SessionsController < ApplicationController
       # because Shopify does not allow us to use our local machine
       # for authorize / install requests
       session[:current_account_id] = params[:account_id]
-      redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin"
+      redirect_to dashboard_index_path
     end
   end
 
   def destroy
     # Send them back to Shopify
     if current_account
-      redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/apps"
+      redirect_to "https://contestappp.herokuapp.com/auth/shopify/callback"
     else
       redirect_to sessions_new_path
     end
