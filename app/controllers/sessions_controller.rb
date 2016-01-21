@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # because Shopify does not allow us to use our local machine
       # for authorize / install requests
       session[:current_account_id] = params[:account_id]
-      redirect_to dashboard_index_path
+      redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin"
     end
   end
 
