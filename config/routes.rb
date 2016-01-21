@@ -30,7 +30,7 @@ Contestapp::Application.routes.draw do
   resources :contests
 
   # Dashboard routes
-  get "dashboard/index"
+  get "home/index"
   post "create_contest" => 'dashboard#create_contest'
   get "test_connection" => 'dashboard#test_connection'
 
