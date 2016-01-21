@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     # Send them back to Shopify
     if current_account
-      redirect_to "https://devlopment-store.myshopify.com/admin/apps"
+      redirect_to "https://#{params[:shop].gsub(".myshopify.com","")}.myshopify.com/admin/apps"
     else
       redirect_to sessions_new_path
     end
