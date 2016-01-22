@@ -8,6 +8,8 @@ Bundler.require(:default, Rails.env)
 
 module Contestapp
   class Application < Rails::Application
+  config.shopify.api_key = '2797f1bc7e2ae87a08fb90f0713f1712'
+    config.shopify.secret ='756bbb6132cc61ad450e5b1bd2e0f411'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
