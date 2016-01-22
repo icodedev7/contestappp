@@ -1,13 +1,17 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
 module Contestapp
   class Application < Rails::Application
+  
+   # Shopify API connection credentials:
   config.shopify.api_key = '2797f1bc7e2ae87a08fb90f0713f1712'
     config.shopify.secret ='756bbb6132cc61ad450e5b1bd2e0f411'
     # Settings in config/environments/* take precedence over those specified here.
