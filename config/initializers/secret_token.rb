@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Contestapp::Application.config.secret_key_base = 'f0cd2ba33857238bc79d936d366f11bfc422880ea6ab6d9d9995de004d4fbadbccdc4ecbf4d9f50f3e7353433a31062daf65b193ce3bffd97acc7007ae32872d'
+Contestapp::Application.config.secret_key_base = 'b02e461c0572498531dd95c68629b171-1453441554'
